@@ -89,7 +89,7 @@ const ResetPassword = () => {
             justifyContent: "center",
             alignItems: "flex-start",
             backgroundColor: "white",
-            width: "30%",
+            width: "90%",
             flexDirection: "column",
             padding: "5%",
             borderRadius: "10px",
