@@ -65,7 +65,11 @@ const ConfirmEmail = () => {
           {confirmed === 1 ? (
             <Grid
               container
-              sx={{ justifyContent: "center", alignItems: "center" }}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
             >
               <Typography
                 variant="h5"
@@ -96,7 +100,11 @@ const ConfirmEmail = () => {
           ) : confirmed === -1 ? (
             <Grid
               container
-              sx={{ justifyContent: "center", alignItems: "center" }}
+              sx={{
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+              }}
             >
               <Typography
                 variant="h5"
@@ -110,7 +118,11 @@ const ConfirmEmail = () => {
           ) : confirming ? (
             <Grid
               container
-              sx={{ alignItems: "center", justifyContent: "center" }}
+              sx={{
+                alignItems: "center",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
             >
               <Typography
                 variant="h5"
