@@ -44,6 +44,7 @@ const ResetPassword = () => {
     );
     if (!success) {
       alert("Error resetting password");
+      setLoading(false);
     } else {
       setLoading(false);
       setSuccess(true);
@@ -163,7 +164,7 @@ const ResetPassword = () => {
             onClick={handleUpload}
             loading={loading}
           >
-            Upload
+            Submit
           </LoadingButton>
           {success ? (
             <Typography
