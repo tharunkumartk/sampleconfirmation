@@ -13,7 +13,7 @@ interface RouteSchema {
 export default function Router() {
   const routes: RouteSchema[] = [
     {
-      path: "/confirm-email",
+      path: "/",
       component: <ConfirmEmail />,
     },
     // {
