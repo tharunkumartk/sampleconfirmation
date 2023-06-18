@@ -1,8 +1,8 @@
-import * as React from "react";
+// import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 
 import ConfirmEmail from "./components/ConfirmEmail";
-import ApplicationUpload from "./components/ApplicationUpload";
+// import ApplicationUpload from "./components/ApplicationUpload";
 import ResetPassword from "./components/ResetPassword";
 
 interface RouteSchema {

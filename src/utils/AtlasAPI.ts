@@ -58,7 +58,7 @@ export const uploadApplication = async (
  * @param name name of the application to delete
  * @returns boolean indicating whether the deletion was successful
  */
-const deleteApplication = async (name: string) => {
+export const deleteApplication = async (name: string) => {
   try {
     const app = Realm.App.getApp("data-jrnnm");
     const credentials = Realm.Credentials.apiKey(

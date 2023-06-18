@@ -1,14 +1,6 @@
-import {
-  Box,
-  Button,
-  CircularProgress,
-  Grid,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { confirmUser, uploadApplication } from "../utils/AtlasAPI";
+import { Grid, TextField, Typography } from "@mui/material";
+import { useState } from "react";
+import { uploadApplication } from "../utils/AtlasAPI";
 import { MuiFileInput } from "mui-file-input";
 import { extractMessageItems } from "../utils/LoadApplication";
 import { MessageItem } from "../utils/types";
@@ -18,7 +10,7 @@ const ApplicationUpload = () => {
   const [data, setData] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [success, setSuccess] = useState<boolean>(false);
+  const [success] = useState<boolean>(false);
 
   const handleChange = (newFile: File | null) => {
     // check if newfile is .xlsx

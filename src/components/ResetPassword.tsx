@@ -1,26 +1,15 @@
 import {
-  Box,
-  Button,
-  CircularProgress,
   FormControl,
   Grid,
   IconButton,
   InputAdornment,
   InputLabel,
   OutlinedInput,
-  TextField,
   Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import {
-  confirmUser,
-  resetPassword,
-  uploadApplication,
-} from "../utils/AtlasAPI";
-import { MuiFileInput } from "mui-file-input";
-import { extractMessageItems } from "../utils/LoadApplication";
-import { MessageItem } from "../utils/types";
+import { resetPassword } from "../utils/AtlasAPI";
 import { LoadingButton } from "@mui/lab";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
