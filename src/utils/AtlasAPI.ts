@@ -56,7 +56,6 @@ export const uploadApplication = async (
       image: binaryStr!,
     });
     console.log("uploaded application!");
-    await getApplication(name);
     return true;
   } catch (err) {
     console.error("Failed to upload application: ", err);
@@ -113,26 +112,26 @@ export const resetPassword = async (
   }
 };
 
-/**
- * gets a BSC application from the database
- * @param realmApp realm app that retrieves the application
- * @param applicationName name of application to return
- * @returns MessageItem[] of messages
- */
-export const getApplication = async (applicationName: string) => {
-  const realmApp = Realm.App.getApp("data-jrnnm");
-  var application: any;
-  try {
-    application = await realmApp.currentUser!.callFunction(
-      "getApplication",
-      applicationName
-    );
-    console.log(application.result);
-  } catch (e) {
-    console.log(e);
-  }
-  return application.result;
-};
+// /**
+//  * gets a BSC application from the database
+//  * @param realmApp realm app that retrieves the application
+//  * @param applicationName name of application to return
+//  * @returns MessageItem[] of messages
+//  */
+// export const getApplication = async (applicationName: string) => {
+//   const realmApp = Realm.App.getApp("data-jrnnm");
+//   var application: any;
+//   try {
+//     application = await realmApp.currentUser!.callFunction(
+//       "getApplication",
+//       applicationName
+//     );
+//     console.log(application.result);
+//   } catch (e) {
+//     console.log(e);
+//   }
+//   return application.result;
+// };
 
 /**
  * checks if a given email and password belongs to an admin user

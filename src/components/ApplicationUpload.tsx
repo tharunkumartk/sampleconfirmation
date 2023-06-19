@@ -9,8 +9,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { getApplication, isAdmin, uploadApplication } from "../utils/AtlasAPI";
+import { useState } from "react";
+import { isAdmin, uploadApplication } from "../utils/AtlasAPI";
 import { MuiFileInput } from "mui-file-input";
 import { extractMessageItems } from "../utils/LoadApplication";
 import { MessageItem } from "../utils/types";
