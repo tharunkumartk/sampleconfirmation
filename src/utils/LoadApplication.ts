@@ -15,7 +15,7 @@ export const getMessageItemObject = (
   force_buttons: boolean = false,
   timer_count: number = -1
 ) => {
-  if (timer_count != -1) {
+  if (timer_count !== -1) {
     return {
       timerCount: timer_count,
       requireTimer: true,

@@ -71,7 +71,6 @@ const ResetPassword = () => {
           height: "90%",
           justifyContent: "center",
           alignItems: "center",
-          flexDirection: "column",
         }}
       >
         <Typography
@@ -85,12 +84,11 @@ const ResetPassword = () => {
         <Grid
           container
           sx={{
-            marginTop: "5%",
-            marginHorizontal: "10%",
+            width: "90%",
+            marginHorizontal: "20%",
             justifyContent: "center",
             alignItems: "flex-start",
             backgroundColor: "white",
-            width: "90%",
             flexDirection: "column",
             padding: "5%",
             borderRadius: "10px",
