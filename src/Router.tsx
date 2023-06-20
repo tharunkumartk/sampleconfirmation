@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import ConfirmEmail from "./components/ConfirmEmail";
 import ApplicationUpload from "./components/ApplicationUpload";
 import ResetPassword from "./components/ResetPassword";
+import ApplicationDelete from "./components/ApplicationDelete";
 
 interface RouteSchema {
   path: string;
@@ -19,6 +20,10 @@ export default function Router() {
     {
       path: "/upload-application",
       component: <ApplicationUpload />,
+    },
+    {
+      path: "/delete-application",
+      component: <ApplicationDelete />,
     },
     {
       path: "/reset-password",

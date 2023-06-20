@@ -44,6 +44,7 @@ export const uploadApplication = async (
       binaryStr = reader.result as string;
     };
 
+    // upload application
     const app = Realm.App.getApp("data-jrnnm");
     const credentials = Realm.Credentials.apiKey(
       process.env.REACT_APP_API_KEY!
@@ -54,6 +55,7 @@ export const uploadApplication = async (
       applicationName: name,
       messages: messageItems,
       image: binaryStr!,
+      timeStamp: new Date(),
     });
     console.log("uploaded application!");
     return true;
@@ -79,6 +81,7 @@ export const deleteApplication = async (name: string) => {
     const result = await user.callFunction("deleteApplication", {
       applicationName: name,
     });
+    console.log(result);
     console.log("deleted application!");
     return result;
   } catch (err) {
