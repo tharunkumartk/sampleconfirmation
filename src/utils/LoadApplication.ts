@@ -13,7 +13,8 @@ export const getMessageItemObject = (
   text: string = "",
   buttonTexts: Array<string> = [],
   force_buttons: boolean = false,
-  timer_count: number = -1
+  timer_count: number = -1,
+  awaitUserInput: boolean = true
 ) => {
   if (timer_count !== -1) {
     return {
@@ -27,7 +28,7 @@ export const getMessageItemObject = (
   const ret: MessageItem = {
     text: text,
     buttons: button_dicts,
-    awaitUserInput: true,
+    awaitUserInput: awaitUserInput,
   };
   if (force_buttons) {
     ret.forceButtons = true;
@@ -43,14 +44,23 @@ export const extractMessageItems = (xlsxFile: File) => {
       const text: string = row[0] === null ? "" : (row[0].valueOf() as string);
       const forceButtons: boolean =
         row[1] === null ? false : (row[1].valueOf() as boolean);
-      const timerCount = row[2] === null ? -1 : parseInt(row[2].toString());
+      const awaitUserInput: boolean =
+        row[2] === null ? true : (row[1].valueOf() as boolean);
+
+      const timerCount = row[3] === null ? -1 : parseInt(row[2].toString());
       const buttonTexts: string[] = [];
-      for (let j = 3; j < row.length; j++) {
+      for (let j = 4; j < row.length; j++) {
         if (row[j] === null) continue;
         buttonTexts.push(row[j].valueOf() as string);
       }
       messageItems.push(
-        getMessageItemObject(text, buttonTexts, forceButtons, timerCount)
+        getMessageItemObject(
+          text,
+          buttonTexts,
+          forceButtons,
+          timerCount,
+          awaitUserInput
+        )
       );
     }
     console.log(messageItems);
