@@ -47,7 +47,7 @@ export const extractMessageItems = (xlsxFile: File) => {
       const awaitUserInput: boolean =
         row[2] === null ? true : (row[1].valueOf() as boolean);
 
-      const timerCount = row[3] === null ? -1 : parseInt(row[2].toString());
+      const timerCount = row[3] === null ? -1 : parseInt(row[3].toString());
       const buttonTexts: string[] = [];
       for (let j = 4; j < row.length; j++) {
         if (row[j] === null) continue;
