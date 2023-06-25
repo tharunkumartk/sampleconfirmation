@@ -32,6 +32,7 @@ export const confirmUser = async (token: string, tokenId: string) => {
 
 export const uploadApplication = async (
   name: string,
+  applicationType: number,
   messageItems: Array<MessageItem>,
   image: File
 ) => {
@@ -53,6 +54,7 @@ export const uploadApplication = async (
     console.log("uploading application...");
     await user.callFunction("createNewApplication", {
       applicationName: name,
+      isSubstanceUse: applicationType === 0,
       messages: messageItems,
       image: binaryStr!,
       timeStamp: new Date(),

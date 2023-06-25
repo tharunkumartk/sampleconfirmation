@@ -5,7 +5,10 @@ import {
   IconButton,
   InputAdornment,
   InputLabel,
+  MenuItem,
+  NativeSelect,
   OutlinedInput,
+  Select,
   TextField,
   Typography,
 } from "@mui/material";
@@ -26,6 +29,7 @@ const ApplicationUpload = () => {
   const [data, setData] = useState<File | null>(null);
   const [imageData, setImageData] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
+  const [applicationType, setApplicationType] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -73,7 +77,8 @@ const ApplicationUpload = () => {
       data === null ||
       imageData === null ||
       userName === "" ||
-      password === ""
+      password === "" ||
+      (applicationType !== 0 && applicationType !== 1)
     ) {
       alert("Please fill the required fields.");
       return;
@@ -91,7 +96,12 @@ const ApplicationUpload = () => {
     if (items === null || items === undefined) {
       alert("Invalid file");
     } else {
-      const success = await uploadApplication(fileName, items, imageData);
+      const success = await uploadApplication(
+        fileName,
+        applicationType,
+        items,
+        imageData
+      );
       if (!success) {
         alert("Error uploading application");
       } else {
@@ -101,6 +111,7 @@ const ApplicationUpload = () => {
         setUserName("");
         setPassword("");
         setSuccess(true);
+        setApplicationType(0);
       }
       setLoading(false);
     }
@@ -189,6 +200,23 @@ const ApplicationUpload = () => {
             onChange={(e) => setFileName(e.target.value)}
             required
           />
+          <FormControl sx={{ marginTop: "4vh", width: "15vw" }}>
+            <InputLabel id="demo-simple-select-label">
+              Application Type
+            </InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={applicationType}
+              label="Application Type"
+              onChange={(e) =>
+                setApplicationType(parseInt(e.target.value as string))
+              }
+            >
+              <MenuItem value={0}>Substance Use</MenuItem>
+              <MenuItem value={1}>General</MenuItem>
+            </Select>
+          </FormControl>
           <Typography
             variant="body1"
             color={"black"}
