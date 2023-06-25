@@ -107,7 +107,11 @@ export const resetPassword = async (
   try {
     const app = Realm.App.getApp("data-jrnnm");
     console.log("resetting password...");
-    await app.emailPasswordAuth.resetPassword({ token, tokenId, password });
+    await app.emailPasswordAuth.resetPassword({
+      token,
+      tokenId,
+      password,
+    });
     console.log(password);
     console.log("reset password!");
     return true;

@@ -37,10 +37,11 @@ const ResetPassword = () => {
     }
 
     setLoading(true);
+
     const success = await resetPassword(
+      password,
       params.get("token")!,
-      params.get("tokenId")!,
-      password
+      params.get("tokenId")!
     );
     if (!success) {
       alert("Error resetting password");
