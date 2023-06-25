@@ -80,6 +80,7 @@ const ApplicationUpload = () => {
       (applicationType !== 0 && applicationType !== 1)
     ) {
       alert("Please fill the required fields.");
+      setLoading(false);
       return;
     }
 
