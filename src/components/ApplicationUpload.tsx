@@ -6,7 +6,6 @@ import {
   InputAdornment,
   InputLabel,
   MenuItem,
-  NativeSelect,
   OutlinedInput,
   Select,
   TextField,
