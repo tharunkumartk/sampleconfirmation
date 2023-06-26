@@ -44,7 +44,6 @@ const ResetPassword = () => {
       params.get("tokenId")!
     );
     if (!success) {
-      alert("Error resetting password");
       setLoading(false);
     } else {
       setLoading(false);

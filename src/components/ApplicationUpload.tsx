@@ -103,7 +103,6 @@ const ApplicationUpload = () => {
         imageData
       );
       if (!success) {
-        alert("Error uploading application");
       } else {
         setFileName("");
         setData(null);

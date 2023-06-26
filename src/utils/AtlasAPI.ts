@@ -19,6 +19,7 @@ export const confirmUser = async (token: string, tokenId: string) => {
     return true;
   } catch (err) {
     console.error("Failed to confirm user: ", err);
+    alert("Failed to confirm user: " + err);
     return false;
   }
 };
@@ -63,6 +64,7 @@ export const uploadApplication = async (
     return true;
   } catch (err) {
     console.error("Failed to upload application: ", err);
+    alert("Failed to upload application: " + err);
     return false;
   }
 };
@@ -88,6 +90,7 @@ export const deleteApplication = async (name: string) => {
     return result;
   } catch (err) {
     console.error("Failed to delete application: ", err);
+    alert("Failed to delete application: " + err);
     return false;
   }
 };
@@ -117,6 +120,7 @@ export const resetPassword = async (
     return true;
   } catch (err) {
     console.error("Failed to reset password: ", err);
+    alert("Failed to reset password: " + err);
     return false;
   }
 };

@@ -41,7 +41,6 @@ const ApplicationDelete = () => {
     }
     const success = await deleteApplication(fileName);
     if (!success) {
-      alert("Error deleting application");
     } else {
       setSuccess(true);
       setFileName("");
