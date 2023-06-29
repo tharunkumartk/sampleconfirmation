@@ -157,7 +157,7 @@ export const isAdmin = async (email: string, password: string) => {
     const app = Realm.App.getApp("data-jrnnm");
     const credentials = Realm.Credentials.emailPassword(email, password);
     const user = await app.logIn(credentials);
-    if (user.id === "64907385b335d31cdfd6df0d") {
+    if (user.id === "649beb6ee62aeb404bbbb6ca") {
       return true;
     } else {
       return false;
