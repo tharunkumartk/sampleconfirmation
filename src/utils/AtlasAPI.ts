@@ -27,13 +27,15 @@ export const confirmUser = async (token: string, tokenId: string) => {
 /**
  * function that creates a new application in the DB with the given name and messages
  * @param name name of the new application
+ * @param applicationType type of the new application
  * @param messageItems messages to upload
- * @returns
+ * @param image image to upload
+ * @returns boolean indicating whether the upload was successful
  */
 
 export const uploadApplication = async (
   name: string,
-  applicationType: number,
+  applicationType: string,
   messageItems: Array<MessageItem>,
   image: File
 ) => {
@@ -55,7 +57,7 @@ export const uploadApplication = async (
     console.log("uploading application...");
     await user.callFunction("createNewApplication", {
       applicationName: name,
-      isSubstanceUse: applicationType === 0,
+      type: applicationType,
       messages: messageItems,
       image: binaryStr!,
       timeStamp: new Date(),
