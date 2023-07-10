@@ -1,6 +1,6 @@
 import * as Realm from "realm-web";
 import { MessageItem } from "./types";
-
+import { ObjectId } from "bson";
 /**
  * function that confirms a user through a given token and tokenId
  * @param token token to confirm
@@ -168,4 +168,59 @@ export const isAdmin = async (email: string, password: string) => {
     console.error("Failed to check if admin: ", err);
     return false;
   }
+};
+
+/**
+ * function that retrieves the mood entries of a user for a given userId
+ * @param userId the userId to get the mood entries for
+ * @returns the corresponding mood entries to the dates and user
+ */
+export const getMood = async (userId: ObjectId) => {
+  var ret: any;
+  try {
+    const realmApp = Realm.App.getApp("data-jrnnm");
+    ret = await realmApp.currentUser!.callFunction("getMoodScore", {
+      userId: userId,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+
+  return ret.result.moods;
+
+  // dummy data with random moods and stresses
+  // const dummyData: MoodEntry[] = [];
+  // const dayLength = 24 * 60 * 60 * 1000;
+  // const currdate = new Date().valueOf();
+  // for (let i = 20; i >= 0; i -= 1) {
+  //   dummyData.push({
+  //     _id: "test" + (i - 20).toString(),
+  //     moodValue: Math.round(Math.random() * 10),
+  //     stressValue: Math.round(Math.random() * 10),
+  //     timeStamp: new Date(currdate - dayLength * i),
+  //   });
+  // }
+  // return dummyData;
+};
+
+/**
+ * function that retrieves the user id of a user given a first name and last name
+ * @param firstName string representing the first name
+ * @param lastName string representing the last name
+ * @returns the corresponding user id
+ */
+export const getUserId = async (firstName: string, lastName: string) => {
+  var ret: any;
+  try {
+    const realmApp = Realm.App.getApp("data-jrnnm");
+    ret = await realmApp.currentUser!.callFunction("getUserId", {
+      firstName,
+      lastName,
+    });
+  } catch (e) {
+    console.log(e);
+    return false;
+  }
+  if (ret && ret.result && ret.result._id) return ret.result._id;
+  else return false;
 };

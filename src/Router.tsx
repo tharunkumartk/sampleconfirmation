@@ -5,6 +5,7 @@ import ConfirmEmail from "./components/ConfirmEmail";
 import ApplicationUpload from "./components/ApplicationUpload";
 import ResetPassword from "./components/ResetPassword";
 import ApplicationDelete from "./components/ApplicationDelete";
+import MoodTracker from "./components/MoodTracker";
 
 interface RouteSchema {
   path: string;
@@ -28,6 +29,10 @@ export default function Router() {
     {
       path: "/reset-password",
       component: <ResetPassword />,
+    },
+    {
+      path: "/mood-tracker",
+      component: <MoodTracker />,
     },
   ];
 

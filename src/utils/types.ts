@@ -40,3 +40,13 @@ export interface MessageButton {
   onPress?: () => void;
   disabled?: boolean;
 }
+
+/**
+ * interface for mood entries
+ */
+export interface MoodEntry {
+  _id: string;
+  stressValue: number;
+  moodValue: number;
+  timeStamp: Date;
+}
