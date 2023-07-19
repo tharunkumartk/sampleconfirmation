@@ -28,8 +28,7 @@ const ApplicationUpload = () => {
   const [data, setData] = useState<File | null>(null);
   const [imageData, setImageData] = useState<File | null>(null);
   const [fileName, setFileName] = useState<string>("");
-  const [applicationType, setApplicationType] =
-    useState<string>("Substance Use");
+  const [applicationType, setApplicationType] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -78,9 +77,7 @@ const ApplicationUpload = () => {
       imageData === null ||
       userName === "" ||
       password === "" ||
-      (applicationType !== "Substance Use" &&
-        applicationType !== "General" &&
-        applicationType !== "Care Giver")
+      applicationType === ""
     ) {
       alert("Please fill the required fields.");
       setLoading(false);
@@ -211,11 +208,13 @@ const ApplicationUpload = () => {
               id="demo-simple-select"
               value={applicationType}
               label="Application Type"
+              required
               onChange={(e) => setApplicationType(e.target.value as string)}
             >
               <MenuItem value={"Substance Use"}>Substance Use</MenuItem>
               <MenuItem value={"General"}>General</MenuItem>
               <MenuItem value={"Care Giver"}>Care Giver</MenuItem>
+              <MenuItem value={"Physician Burnout"}>Physician Burnout</MenuItem>
             </Select>
           </FormControl>
           <Typography
